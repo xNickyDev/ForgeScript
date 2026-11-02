@@ -8,6 +8,7 @@ const invite_1 = require("../../properties/invite");
 const structures_1 = require("../../structures");
 exports.default = new structures_1.NativeFunction({
     name: "$getInviteTargetUsersJobStatus",
+    version: "2.9.0",
     description: "Gets the status of the job processing target users of an invite",
     unwrap: true,
     brackets: true,

@@ -11,6 +11,7 @@ const parseTargetUsers_1 = __importDefault(require("../../functions/parseTargetU
 const structures_1 = require("../../structures");
 exports.default = new structures_1.NativeFunction({
     name: "$getInviteTargetUsers",
+    version: "2.9.0",
     description: "Gets the target users of an invite",
     unwrap: true,
     brackets: true,

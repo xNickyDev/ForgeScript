@@ -53,6 +53,7 @@ export default new NativeFunction({
         const channel = (ch ?? ctx.channel) as TextChannel
         const invite = await channel
             .createInvite({
+                reason: ctx.reason,
                 temporary: temp || undefined,
                 maxUses: maxUses || undefined,
                 maxAge: typeof maxAge === "number" ? maxAge : undefined,

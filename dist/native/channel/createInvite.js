@@ -52,6 +52,7 @@ exports.default = new structures_1.NativeFunction({
         const channel = (ch ?? ctx.channel);
         const invite = await channel
             .createInvite({
+            reason: ctx.reason,
             temporary: temp || undefined,
             maxUses: maxUses || undefined,
             maxAge: typeof maxAge === "number" ? maxAge : undefined,

@@ -11,6 +11,7 @@ const parseTargetUsers_1 = __importDefault(require("../../functions/parseTargetU
 const structures_1 = require("../../structures");
 exports.default = new structures_1.NativeFunction({
     name: "$removeInviteTargetUsers",
+    version: "2.9.0",
     description: "Removes target users from an existing invite",
     aliases: ["$removeInviteTargetUser"],
     unwrap: true,

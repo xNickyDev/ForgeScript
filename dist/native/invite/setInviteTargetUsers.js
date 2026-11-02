@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const structures_1 = require("../../structures");
 exports.default = new structures_1.NativeFunction({
     name: "$setInviteTargetUsers",
+    version: "2.9.0",
     description: "Sets target users for an existing invite, overwrites the previous list",
     aliases: ["$setInviteTargetUser"],
     unwrap: true,
