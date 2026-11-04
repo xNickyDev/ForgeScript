@@ -69,7 +69,7 @@ export default new NativeFunction({
         ) as ButtonBuilder
 
         if (!btn) return this.success()
-        style = (style ? resolveNumericEnum(ButtonStyle, style) : btn.data.style)
+        style = (style ? resolveNumericEnum(ButtonStyle, style) : btn.data.style ?? null)
 
         if (label) btn.setLabel(label)
         if (style) btn.setStyle(style)

@@ -20,11 +20,6 @@ declare const _default: NativeFunction<[{
     description: string;
     rest: false;
     type: ArgType.Boolean;
-}, {
-    name: string;
-    description: string;
-    rest: true;
-    type: ArgType.String;
 }], true>;
 export default _default;
 //# sourceMappingURL=addFileUpload.d.ts.map

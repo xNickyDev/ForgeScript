@@ -66,7 +66,7 @@ exports.default = new structures_1.NativeFunction({
         (x) => "custom_id" in x.data && x.data.custom_id === oldId);
         if (!btn)
             return this.success();
-        style = (style ? (0, enum_1.resolveNumericEnum)(discord_js_1.ButtonStyle, style) : btn.data.style);
+        style = (style ? (0, enum_1.resolveNumericEnum)(discord_js_1.ButtonStyle, style) : btn.data.style ?? null);
         if (label)
             btn.setLabel(label);
         if (style)
