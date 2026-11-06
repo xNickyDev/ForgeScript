@@ -37,7 +37,9 @@ export default new NativeFunction({
             type: ArgType.String
         }
     ],
-    async execute(ctx, [ ch, dur, reason ]) {
-        return this.success(!!((ch as TextChannel).setDefaultAutoArchiveDuration(dur, reason || ctx.reason)))
+    async execute(ctx, [ch, dur, reason]) {
+        return this.success(!!(
+            await (ch as TextChannel).setDefaultAutoArchiveDuration(dur, reason || ctx.reason).catch(ctx.noop)
+        ))
     },
 })
