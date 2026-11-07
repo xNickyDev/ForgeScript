@@ -13,7 +13,7 @@ exports.default = new structures_1.NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
+            name: "variable",
             description: "The variable the buffer is allocated on",
             type: structures_1.ArgType.String,
             required: true,
@@ -36,7 +36,7 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: structures_1.ArgType.String,
     execute(ctx, [name, begin, end]) {
-        return this.success(void ctx.getEnvironmentInstance(Buffer, name)?.toString("utf-8", begin, end || undefined));
+        return this.success(ctx.getEnvironmentInstance(Buffer, name)?.toString("utf-8", begin, end || undefined));
     },
 });
 //# sourceMappingURL=bufferReadUtf8.js.map

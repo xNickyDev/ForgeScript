@@ -3,7 +3,7 @@
 * Copyright © 2026 BotForge
 */
 
-import { ArgType, NativeFunction, Return } from "../../structures"
+import { ArgType, NativeFunction } from "../../structures"
 
 export default new NativeFunction({
     name: "$bufferAllocUnsafe",
@@ -13,8 +13,8 @@ export default new NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
-            description: "The variable to load it to, accessed with $env[<name>]",
+            name: "variable",
+            description: "The variable to load to, accessed with $env[<name>]",
             rest: false,
             required: true,
             type: ArgType.String
@@ -27,7 +27,7 @@ export default new NativeFunction({
             required: true
         }
     ],
-    execute(ctx, [ name, bytes ]) {
+    execute(ctx, [name, bytes]) {
         return this.success(void ctx.setEnvironmentKey(name, Buffer.allocUnsafe(bytes)))
     },
 })

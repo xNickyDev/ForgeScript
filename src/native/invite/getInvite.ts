@@ -12,17 +12,13 @@ export default new NativeFunction({
     description: "Returns information about an invite",
     brackets: true,
     unwrap: true,
-    output: [
-        ArgType.Json,
-        ArgType.Unknown
-    ],
     args: [
         {
             name: "code",
             description: "The invite code",
             rest: false,
             required: true,
-            type: ArgType.String,
+            type: ArgType.Invite,
         },
         {
             name: "property",
@@ -38,9 +34,12 @@ export default new NativeFunction({
             type: ArgType.String
         }
     ],
-    async execute(ctx, [code, prop, sep]) {
-        const invite = await ctx.client.fetchInvite(code).catch(ctx.noop)
-        if (prop && invite) return this.success(InviteProperties[prop](invite, sep))
+    output: [
+        ArgType.Json,
+        ArgType.Unknown
+    ],
+    execute(ctx, [invite, prop, sep]) {
+        if (prop) return this.success(InviteProperties[prop](invite, sep))
         return this.successJSON(invite)
     },
 })

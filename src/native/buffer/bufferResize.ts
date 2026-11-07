@@ -3,7 +3,7 @@
 * Copyright © 2026 BotForge
 */
 
-import { ArgType, NativeFunction, Return } from "../../structures"
+import { ArgType, NativeFunction } from "../../structures"
 
 export default new NativeFunction({
     name: "$bufferResize",
@@ -13,7 +13,7 @@ export default new NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
+            name: "variable",
             description: "The variable the buffer is allocated on",
             type: ArgType.String,
             required: true,
@@ -27,7 +27,7 @@ export default new NativeFunction({
             rest: false
         }
     ],
-    execute(ctx, [ name, length ]) {
+    execute(ctx, [name, length]) {
         const buffer = ctx.getEnvironmentInstance(Buffer, name)
         if (buffer !== null) {
             const ref = Buffer.alloc(length)

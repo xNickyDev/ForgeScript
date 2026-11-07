@@ -13,8 +13,8 @@ exports.default = new structures_1.NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
-            description: "The variable to load it to, accessed with $env[<name>]",
+            name: "variable",
+            description: "The variable to load to, accessed with $env[<name>]",
             rest: false,
             required: true,
             type: structures_1.ArgType.String

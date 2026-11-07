@@ -13,7 +13,7 @@ exports.default = new structures_1.NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
+            name: "variable",
             description: "The variable the buffer is allocated on",
             type: structures_1.ArgType.String,
             required: true,
@@ -29,8 +29,7 @@ exports.default = new structures_1.NativeFunction({
     ],
     output: structures_1.ArgType.Number,
     execute(ctx, [name, begin]) {
-        const buffer = ctx.getEnvironmentInstance(Buffer, name);
-        return this.success(void (buffer ? buffer.readInt32LE(begin) : 0));
+        return this.success(ctx.getEnvironmentInstance(Buffer, name)?.readInt32LE(begin) ?? 0);
     },
 });
 //# sourceMappingURL=bufferReadInt32.js.map

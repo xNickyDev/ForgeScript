@@ -13,7 +13,7 @@ exports.default = new structures_1.NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
+            name: "variable",
             description: "The variable the buffer is allocated on",
             type: structures_1.ArgType.String,
             required: true,

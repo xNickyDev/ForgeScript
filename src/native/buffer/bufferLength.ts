@@ -3,7 +3,7 @@
 * Copyright © 2026 BotForge
 */
 
-import { ArgType, NativeFunction, Return } from "../../structures"
+import { ArgType, NativeFunction } from "../../structures"
 
 export default new NativeFunction({
     name: "$bufferLength",
@@ -13,7 +13,7 @@ export default new NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
+            name: "variable",
             description: "The variable the buffer is allocated on",
             type: ArgType.String,
             required: true,
@@ -21,7 +21,7 @@ export default new NativeFunction({
         }
     ],
     output: ArgType.Number,
-    execute(ctx, [ name ]) {
-        return this.success(void ctx.getEnvironmentInstance(Buffer, name)?.length)
+    execute(ctx, [name]) {
+        return this.success(ctx.getEnvironmentInstance(Buffer, name)?.length)
     },
 })

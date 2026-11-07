@@ -3,7 +3,7 @@
 * Copyright © 2026 BotForge
 */
 
-import { ArgType, NativeFunction, Return } from "../../structures"
+import { ArgType, NativeFunction } from "../../structures"
 
 export default new NativeFunction({
     name: "$bufferReadInt32",
@@ -13,7 +13,7 @@ export default new NativeFunction({
     brackets: true,
     args: [
         {
-            name: "variable name",
+            name: "variable",
             description: "The variable the buffer is allocated on",
             type: ArgType.String,
             required: true,
@@ -28,8 +28,7 @@ export default new NativeFunction({
         }
     ],
     output: ArgType.Number,
-    execute(ctx, [ name, begin ]) {
-        const buffer = ctx.getEnvironmentInstance(Buffer, name)
-        return this.success(void (buffer ? buffer.readInt32LE(begin) : 0))
+    execute(ctx, [name, begin]) {
+        return this.success(ctx.getEnvironmentInstance(Buffer, name)?.readInt32LE(begin) ?? 0)
     },
 })
